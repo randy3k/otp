@@ -1,0 +1,50 @@
+---
+output: reprex::reprex_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+```{r results='asis', echo = FALSE, eval = TRUE}
+d <- read.dcf("DESCRIPTION")
+```
+
+```{r results="asis", echo = FALSE, eval = TRUE}
+title <- d[colnames(d) == "Title"]
+cat(c("# ", paste(trimws(strsplit(title, "\n")[[1]]), collapse = " ")))
+```
+
+<!-- badges: start -->
+[![CRAN status](https://www.r-pkg.org/badges/version/otp)](https://CRAN.R-project.org/package=otp)
+<!-- badges: end -->
+
+```{r results="asis", echo = FALSE, eval = TRUE}
+cat(d[colnames(d) == "Description"])
+```
+
+## Installation
+
+You can install the released version of otp from [CRAN](https://CRAN.R-project.org) with:
+
+``` r
+install.packages("otp")
+```
+
+And the development version from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("randy3k/otp")
+```
+## Example
+
+
+<sup>Created on `r Sys.Date()` by the [reprex package](https://reprex.tidyverse.org) (v`r utils::packageVersion("reprex")`)</sup>

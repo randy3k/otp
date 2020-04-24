@@ -1,15 +1,20 @@
 Package: otp
-Title: What the Package Does (One Line, Title Case)
+Title: One Time Password
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    person(given = "Randy",
+           family = "Lai",
            role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+           email = "randy.cs.lai@gmail.com")
+Description: Generating and validating HMAC-based One-time Password (HOTP) 
+    and Time Based One-time Password (TOTP) according to RFC 4226 and RFC 6238.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 URL: https://github.com/randy3k/otp
 BugReports: https://github.com/randy3k/otp/issues
+Imports: 
+    R6,
+    base64url,
+    openssl
+RoxygenNote: 7.1.0
