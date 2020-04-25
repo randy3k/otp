@@ -1,5 +1,8 @@
 ---
-output: reprex::reprex_document
+output:
+  reprex::reprex_document:
+    advertise: false
+    html_preview: false
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->

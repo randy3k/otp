@@ -7,7 +7,8 @@
 [![CRAN status](https://www.r-pkg.org/badges/version/otp)](https://CRAN.R-project.org/package=otp)
 <!-- badges: end -->
 
-Generating and validating HMAC-based One-time Password (HOTP) and Time Based One-time Password (TOTP) according to RFC 4226 and RFC 6238.
+Generating and validating HMAC-based One-time Password (HOTP)
+and Time Based One-time Password (TOTP) according to RFC 4226 and RFC 6238.
 
 ## Installation
 
@@ -26,4 +27,4 @@ devtools::install_github("randy3k/otp")
 
 ## Example
 
-<sup>Created on 2020-04-23 by the [reprex package](https://reprex.tidyverse.org) (v0.3.0.9001)</sup>
+<sup>Created on 2020-04-25 by the [reprex package](https://reprex.tidyverse.org) (v0.3.0.9001)</sup>
