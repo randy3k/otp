@@ -49,5 +49,3 @@ devtools::install_github("randy3k/otp")
 ```
 ## Example
 
-
-<sup>Created on `r Sys.Date()` by the [reprex package](https://reprex.tidyverse.org) (v`r utils::packageVersion("reprex")`)</sup>

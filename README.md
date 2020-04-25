@@ -26,5 +26,3 @@ devtools::install_github("randy3k/otp")
 ```
 
 ## Example
-
-<sup>Created on 2020-04-25 by the [reprex package](https://reprex.tidyverse.org) (v0.3.0.9001)</sup>

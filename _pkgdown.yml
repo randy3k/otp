@@ -1,1 +1,8 @@
-destination: docs
+reference:
+  - title: Introduction
+  - contents:
+    - otp-package
+  - title: Objects
+  - contents:
+    - HOTP
+    - TOTP

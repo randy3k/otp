@@ -1,4 +1,9 @@
+#' @docType package
 #' @importFrom base64url base32_decode base32_encode
+#' @aliases NULL
+"_PACKAGE"
+
+
 OTP <- R6::R6Class(
     "OTP",
     private = list(
@@ -75,6 +80,34 @@ OTP <- R6::R6Class(
 )
 
 
+#' HMAC based One Time Password (HOTP)
+#'
+#' An R6 class that implements the HMAC based One Time Password (HOTP) algorithm.
+#'
+#' @details
+#' # Initialization
+#'
+#' \preformatted{
+#' HOTP$new(secret, digits = 6L, algorithm = "sha1")
+#' }
+#' Create an One Time Password object
+#' - **secret** a scalar character, the base32-based secret key
+#' - **digits** an integer, the number of digits of the password
+#' - **algorithm** the hash algorithm used, possible values are
+#'   "sha1", "sha256" and "sha512".
+#'
+#' # Methods
+#'
+#' \preformatted{
+#' HOTP$at(counter)
+#' }
+#' Generate an one time password at counter value
+#' - **counter** a non-negative integer
+#'
+#'
+#' @examples
+#' p <- HOTP$new("")
+#' @seealso https://tools.ietf.org/html/rfc4226
 #' @export
 HOTP <- R6::R6Class(
     "HOTP",
@@ -109,7 +142,10 @@ HOTP <- R6::R6Class(
     )
 )
 
-
+#' Time based One Time Password (TOTP)
+#'
+#' An R6 class that implements the Time based One Time Password (TOTP) algorithm.
+#'
 #' @export
 TOTP <- R6::R6Class(
     "TOTP",

@@ -1,6 +1,6 @@
 Package: otp
 Title: One Time Password
-Version: 0.0.0.9000
+Version: 0.1.0
 Authors@R: 
     person(given = "Randy",
            family = "Lai",
@@ -17,6 +17,7 @@ Imports:
     R6,
     base64url,
     openssl
-RoxygenNote: 7.1.0
+Roxygen: list(r6 = FALSE, markdown = TRUE)
+RoxygenNote: 7.1.0.9000
 Suggests: 
     testthat (>= 2.1.0)
