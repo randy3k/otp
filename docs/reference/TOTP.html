@@ -145,7 +145,7 @@ step window if there is a match within the <code>behind</code> window. Otherwise
 <li><p><strong>code</strong> a string of digits.</p></li>
 <li><p><strong>t</strong> a POSIXct object or an integer that represents the number of seconds since UNIX epoch.</p></li>
 <li><p><strong>behind</strong> a non-negative integer, the amount of time steps to look behind. A value of <code>1</code>
-means to accept the code before <code>period</code> second ago.</p></li>
+means to accept the code before <code>period</code> seconds ago.</p></li>
 </ul>
 
 <pre>
@@ -160,8 +160,8 @@ means to accept the code before <code>period</code> second ago.</p></li>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='no'>TOTP</span>$<span class='fu'>new</span>(<span class='st'>"JBSWY3DPEHPK3PXP"</span>)
-(<span class='no'>code</span> <span class='kw'>&lt;-</span> <span class='no'>p</span>$<span class='fu'>now</span>())</div><div class='output co'>#&gt; [1] "929816"</div><div class='input'><span class='no'>p</span>$<span class='fu'>verify</span>(<span class='no'>code</span>, <span class='kw'>behind</span> <span class='kw'>=</span> <span class='fl'>1</span>)</div><div class='output co'>#&gt; [1] "2020-04-25 22:07:30 PDT"</div><div class='input'>
-(<span class='no'>current_time</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/Sys.time.html'>Sys.time</a></span>())</div><div class='output co'>#&gt; [1] "2020-04-25 22:07:43 PDT"</div><div class='input'>(<span class='no'>code</span> <span class='kw'>&lt;-</span> <span class='no'>p</span>$<span class='fu'>at_time</span>(<span class='no'>current_time</span>))</div><div class='output co'>#&gt; [1] "929816"</div><div class='input'><span class='no'>p</span>$<span class='fu'>verify</span>(<span class='no'>code</span>, <span class='no'>current_time</span> + <span class='fl'>30</span>, <span class='kw'>behind</span> <span class='kw'>=</span> <span class='fl'>1</span>)</div><div class='output co'>#&gt; [1] "2020-04-25 22:07:30 PDT"</div><div class='input'>
+(<span class='no'>code</span> <span class='kw'>&lt;-</span> <span class='no'>p</span>$<span class='fu'>now</span>())</div><div class='output co'>#&gt; [1] "753883"</div><div class='input'><span class='no'>p</span>$<span class='fu'>verify</span>(<span class='no'>code</span>, <span class='kw'>behind</span> <span class='kw'>=</span> <span class='fl'>1</span>)</div><div class='output co'>#&gt; [1] "2020-04-25 22:29:30 PDT"</div><div class='input'>
+(<span class='no'>current_time</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/Sys.time.html'>Sys.time</a></span>())</div><div class='output co'>#&gt; [1] "2020-04-25 22:29:55 PDT"</div><div class='input'>(<span class='no'>code</span> <span class='kw'>&lt;-</span> <span class='no'>p</span>$<span class='fu'>at_time</span>(<span class='no'>current_time</span>))</div><div class='output co'>#&gt; [1] "753883"</div><div class='input'><span class='no'>p</span>$<span class='fu'>verify</span>(<span class='no'>code</span>, <span class='no'>current_time</span> + <span class='fl'>30</span>, <span class='kw'>behind</span> <span class='kw'>=</span> <span class='fl'>1</span>)</div><div class='output co'>#&gt; [1] "2020-04-25 22:29:30 PDT"</div><div class='input'>
 <span class='no'>p</span>$<span class='fu'>provisioning_uri</span>(<span class='st'>"Alice"</span>, <span class='kw'>issuer</span> <span class='kw'>=</span> <span class='st'>"example.com"</span>)</div><div class='output co'>#&gt; [1] "otpauth://totp/example.com:Alice?secret=JBSWY3DPEHPK3PXP&amp;issuer=example.com"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

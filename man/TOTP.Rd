@@ -38,7 +38,7 @@ step window if there is a match within the \code{behind} window. Otherwise retur
 \item \strong{code} a string of digits.
 \item \strong{t} a POSIXct object or an integer that represents the number of seconds since UNIX epoch.
 \item \strong{behind} a non-negative integer, the amount of time steps to look behind. A value of \code{1}
-means to accept the code before \code{period} second ago.
+means to accept the code before \code{period} seconds ago.
 }
 
 \preformatted{

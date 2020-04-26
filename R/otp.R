@@ -197,7 +197,7 @@ HOTP <- R6::R6Class(
 #' - **code** a string of digits.
 #' - **t** a POSIXct object or an integer that represents the number of seconds since UNIX epoch.
 #' - **behind** a non-negative integer, the amount of time steps to look behind. A value of `1`
-#'   means to accept the code before `period` second ago.
+#'   means to accept the code before `period` seconds ago.
 #'
 #' \preformatted{
 #' HOTP$provisioning_uri(name, issuer = NULL)
