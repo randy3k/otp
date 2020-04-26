@@ -32,7 +32,7 @@ Generate an one time password at counter value.
 HOTP$verify(code, counter, ahead = 0L)
 }
 Verify if a given one time password is valid. Returns the matching \code{counter} value if there
-is a match within the \code{ahead}. Otherwise return \code{NULL}.
+is a match within the \code{ahead} window. Otherwise return \code{NULL}.
 \itemize{
 \item \strong{code} a string of digits.
 \item \strong{counter} a non-negative integer.

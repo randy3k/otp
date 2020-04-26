@@ -108,7 +108,7 @@ OTP <- R6::R6Class(
 #' HOTP$verify(code, counter, ahead = 0L)
 #' }
 #' Verify if a given one time password is valid. Returns the matching `counter` value if there
-#' is a match within the `ahead`. Otherwise return `NULL`.
+#' is a match within the `ahead` window. Otherwise return `NULL`.
 #' - **code** a string of digits.
 #' - **counter** a non-negative integer.
 #' - **ahead** a non-negative integer, the amount of counter ticks to look ahead.
@@ -193,9 +193,9 @@ HOTP <- R6::R6Class(
 #' HOTP$verify(code, t, behind = 0L)
 #' }
 #' Verify if a given one time password is valid. Returns the beginning time of the time
-#'   step window if there is a match within the `behind`. Otherwise return `NULL`.
+#'   step window if there is a match within the `behind` window. Otherwise return `NULL`.
 #' - **code** a string of digits.
-#' - **t** a POSIXct object or an integer that represents the numbers of second since UNIX epoch.
+#' - **t** a POSIXct object or an integer that represents the number of seconds since UNIX epoch.
 #' - **behind** a non-negative integer, the amount of time steps to look behind. A value of `1`
 #'   means to accept the code before `period` second ago.
 #'

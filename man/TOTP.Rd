@@ -33,10 +33,10 @@ Generate an one time password at a given time value.
 HOTP$verify(code, t, behind = 0L)
 }
 Verify if a given one time password is valid. Returns the beginning time of the time
-step window if there is a match within the \code{behind}. Otherwise return \code{NULL}.
+step window if there is a match within the \code{behind} window. Otherwise return \code{NULL}.
 \itemize{
 \item \strong{code} a string of digits.
-\item \strong{t} a POSIXct object or an integer that represents the numbers of second since UNIX epoch.
+\item \strong{t} a POSIXct object or an integer that represents the number of seconds since UNIX epoch.
 \item \strong{behind} a non-negative integer, the amount of time steps to look behind. A value of \code{1}
 means to accept the code before \code{period} second ago.
 }
