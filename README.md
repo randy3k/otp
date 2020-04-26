@@ -49,9 +49,9 @@ p$verify("964230", 8)
 ``` r
 p <- TOTP$new("JBSWY3DPEHPK3PXP")
 (code <- p$now())
-#> [1] "703542"
+#> [1] "339157"
 p$verify(code)
-#> [1] "2020-04-25 21:53:00 PDT"
+#> [1] "2020-04-25 21:59:30 PDT"
 ```
 
 ## Related projects

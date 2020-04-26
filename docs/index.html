@@ -70,8 +70,8 @@
 <div id="one-time-password-generation-and-verificaiton" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
 <a href="#one-time-password-generation-and-verificaiton" class="anchor"></a>One Time Password Generation and Verificaiton</h1></div>
-<!-- badges: start -->
 
+<p>Documentation: <a href="https://randy3k.github.io/otp">http://randy3k.github.io/otp</a></p>
 <p>Generating and validating HMAC-based One-time Password (HOTP) and Time Based One-time Password (TOTP) according to RFC 4226 and RFC 6238.</p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
@@ -100,9 +100,9 @@
 <a href="#time-based-one-time-password-totp" class="anchor"></a>Time based One Time Password (TOTP)</h3>
 <div class="sourceCode" id="cb5"><pre class="r"><span class="no">p</span> <span class="kw">&lt;-</span> <span class="no">TOTP</span>$<span class="fu">new</span>(<span class="st">"JBSWY3DPEHPK3PXP"</span>)
 (<span class="no">code</span> <span class="kw">&lt;-</span> <span class="no">p</span>$<span class="fu">now</span>())
-<span class="co">#&gt; [1] "904156"</span>
+<span class="co">#&gt; [1] "340803"</span>
 <span class="no">p</span>$<span class="fu">verify</span>(<span class="no">code</span>)
-<span class="co">#&gt; [1] "2020-04-25 21:46:00 PDT"</span></pre></div>
+<span class="co">#&gt; [1] "2020-04-25 21:58:30 PDT"</span></pre></div>
 </div>
 </div>
 <div id="related-projects" class="section level2">
@@ -145,7 +145,10 @@
   <div class="dev-status">
 <h2>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://CRAN.R-project.org/package=otp"><img src="https://www.r-pkg.org/badges/version/otp" alt="CRAN status"></a></li>
+<li><a href="https://github.com/randy3k/otp"><img src="https://github.com/randy3k/otp/workflows/build/badge.svg?branch=master" alt="Github Action"></a></li>
+<li><a href="https://codecov.io/gh/randy3k/otp"><img src="https://codecov.io/gh/randy3k/otp/branch/master/graph/badge.svg" alt="codecov"></a></li>
+<li><a href="https://cran.r-project.org/package=otp"><img src="http://www.r-pkg.org/badges/version/otp" alt="CRAN_Status_Badge"></a></li>
+<li><a href="https://cran.r-project.org/package=otp"><img src="http://cranlogs.r-pkg.org/badges/grand-total/otp"></a></li>
 </ul>
 </div>
 </div>
