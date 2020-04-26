@@ -49,3 +49,28 @@ devtools::install_github("randy3k/otp")
 ```
 ## Example
 
+```{r}
+library(otp)
+```
+
+### HMAC based One Time Password (HOTP)
+
+```{r}
+p <- HOTP$new("JBSWY3DPEHPK3PXP")
+p$at(8)
+p$verify("964230", 8)
+```
+
+### Time based One Time Password (TOTP)
+
+```{r}
+p <- TOTP$new("JBSWY3DPEHPK3PXP")
+(code <- p$now())
+p$verify(code)
+```
+
+## Related projects
+
+- Ruby's [rotp](https://github.com/mdp/rotp).
+- Python's [pyotp](https://github.com/pyauth/pyotp).
+- [ropt](https://github.com/wrathematics/rotp), an R library for client side one time password management.

@@ -26,7 +26,7 @@ TOTP$at_time(t)
 }
 Generate an one time password at a given time value.
 \itemize{
-\item \strong{t} a POSIXct or POSIXct-compatible object.
+\item \strong{t} a POSIXct object or an integer that represents the numbers of second since UNIX epoch.
 }
 
 \preformatted{
@@ -36,7 +36,7 @@ Verify if a given one time password is valid. Returns the beginning time of the 
 step window if there is a match within the \code{behind}. Otherwise return \code{NULL}.
 \itemize{
 \item \strong{code} a string of digits.
-\item \strong{t} a POSIXct or POSIXct-compatible object.
+\item \strong{t} a POSIXct object or an integer that represents the numbers of second since UNIX epoch.
 \item \strong{behind} a non-negative integer, the amount of time steps to look behind. A value of \code{1}
 means to accept the code before \code{period} second ago.
 }

@@ -67,9 +67,9 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-<div id="one-time-password" class="section level1">
+<div id="one-time-password-generation-and-verificaiton" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
-<a href="#one-time-password" class="anchor"></a>One Time Password</h1></div>
+<a href="#one-time-password-generation-and-verificaiton" class="anchor"></a>One Time Password Generation and Verificaiton</h1></div>
 <!-- badges: start -->
 
 <p>Generating and validating HMAC-based One-time Password (HOTP) and Time Based One-time Password (TOTP) according to RFC 4226 and RFC 6238.</p>
@@ -85,6 +85,35 @@
 <div id="example" class="section level2">
 <h2 class="hasAnchor">
 <a href="#example" class="anchor"></a>Example</h2>
+<div class="sourceCode" id="cb3"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">otp</span>)</pre></div>
+<div id="hmac-based-one-time-password-hotp" class="section level3">
+<h3 class="hasAnchor">
+<a href="#hmac-based-one-time-password-hotp" class="anchor"></a>HMAC based One Time Password (HOTP)</h3>
+<div class="sourceCode" id="cb4"><pre class="r"><span class="no">p</span> <span class="kw">&lt;-</span> <span class="no">HOTP</span>$<span class="fu">new</span>(<span class="st">"JBSWY3DPEHPK3PXP"</span>)
+<span class="no">p</span>$<span class="fu">at</span>(<span class="fl">8</span>)
+<span class="co">#&gt; [1] "964230"</span>
+<span class="no">p</span>$<span class="fu">verify</span>(<span class="st">"964230"</span>, <span class="fl">8</span>)
+<span class="co">#&gt; [1] 8</span></pre></div>
+</div>
+<div id="time-based-one-time-password-totp" class="section level3">
+<h3 class="hasAnchor">
+<a href="#time-based-one-time-password-totp" class="anchor"></a>Time based One Time Password (TOTP)</h3>
+<div class="sourceCode" id="cb5"><pre class="r"><span class="no">p</span> <span class="kw">&lt;-</span> <span class="no">TOTP</span>$<span class="fu">new</span>(<span class="st">"JBSWY3DPEHPK3PXP"</span>)
+(<span class="no">code</span> <span class="kw">&lt;-</span> <span class="no">p</span>$<span class="fu">now</span>())
+<span class="co">#&gt; [1] "904156"</span>
+<span class="no">p</span>$<span class="fu">verify</span>(<span class="no">code</span>)
+<span class="co">#&gt; [1] "2020-04-25 21:46:00 PDT"</span></pre></div>
+</div>
+</div>
+<div id="related-projects" class="section level2">
+<h2 class="hasAnchor">
+<a href="#related-projects" class="anchor"></a>Related projects</h2>
+<ul>
+<li>Ruby’s <a href="https://github.com/mdp/rotp">rotp</a>.</li>
+<li>Python’s <a href="https://github.com/pyauth/pyotp">pyotp</a>.</li>
+<li>
+<a href="https://github.com/wrathematics/rotp">ropt</a>, an R library for client side one time password management.</li>
+</ul>
 </div>
 </div>
   </div>

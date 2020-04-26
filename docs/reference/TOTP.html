@@ -136,14 +136,14 @@
     
 <pre>
 <span class='no'>TOTP</span>$<span class='fu'>at_time</span>(<span class='no'>t</span>)</pre><p>Generate an one time password at a given time value.</p><ul>
-<li><p><strong>t</strong> a POSIXct or POSIXct-compatible object.</p></li>
+<li><p><strong>t</strong> a POSIXct object or an integer that represents the numbers of second since UNIX epoch.</p></li>
 </ul>
 
 <pre>
 <span class='no'>HOTP</span>$<span class='fu'>verify</span>(<span class='no'>code</span>, <span class='no'>t</span>, <span class='kw'>behind</span> <span class='kw'>=</span> <span class='fl'>0L</span>)</pre><p>Verify if a given one time password is valid. Returns the beginning time of the time
 step window if there is a match within the <code>behind</code>. Otherwise return <code>NULL</code>.</p><ul>
 <li><p><strong>code</strong> a string of digits.</p></li>
-<li><p><strong>t</strong> a POSIXct or POSIXct-compatible object.</p></li>
+<li><p><strong>t</strong> a POSIXct object or an integer that represents the numbers of second since UNIX epoch.</p></li>
 <li><p><strong>behind</strong> a non-negative integer, the amount of time steps to look behind. A value of <code>1</code>
 means to accept the code before <code>period</code> second ago.</p></li>
 </ul>
@@ -160,8 +160,8 @@ means to accept the code before <code>period</code> second ago.</p></li>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='no'>TOTP</span>$<span class='fu'>new</span>(<span class='st'>"JBSWY3DPEHPK3PXP"</span>)
-(<span class='no'>code</span> <span class='kw'>&lt;-</span> <span class='no'>p</span>$<span class='fu'>now</span>())</div><div class='output co'>#&gt; [1] "959512"</div><div class='input'><span class='no'>p</span>$<span class='fu'>verify</span>(<span class='no'>code</span>, <span class='kw'>behind</span> <span class='kw'>=</span> <span class='fl'>1</span>)</div><div class='output co'>#&gt; [1] "2020-04-25 21:39:00 PDT"</div><div class='input'>
-(<span class='no'>current_time</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/Sys.time.html'>Sys.time</a></span>())</div><div class='output co'>#&gt; [1] "2020-04-25 21:39:19 PDT"</div><div class='input'>(<span class='no'>code</span> <span class='kw'>&lt;-</span> <span class='no'>p</span>$<span class='fu'>at_time</span>(<span class='no'>current_time</span>))</div><div class='output co'>#&gt; [1] "959512"</div><div class='input'><span class='no'>p</span>$<span class='fu'>verify</span>(<span class='no'>code</span>, <span class='no'>current_time</span> + <span class='fl'>30</span>, <span class='kw'>behind</span> <span class='kw'>=</span> <span class='fl'>1</span>)</div><div class='output co'>#&gt; [1] "2020-04-25 21:39:00 PDT"</div><div class='input'>
+(<span class='no'>code</span> <span class='kw'>&lt;-</span> <span class='no'>p</span>$<span class='fu'>now</span>())</div><div class='output co'>#&gt; [1] "665376"</div><div class='input'><span class='no'>p</span>$<span class='fu'>verify</span>(<span class='no'>code</span>, <span class='kw'>behind</span> <span class='kw'>=</span> <span class='fl'>1</span>)</div><div class='output co'>#&gt; [1] "2020-04-25 21:47:30 PDT"</div><div class='input'>
+(<span class='no'>current_time</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/Sys.time.html'>Sys.time</a></span>())</div><div class='output co'>#&gt; [1] "2020-04-25 21:47:52 PDT"</div><div class='input'>(<span class='no'>code</span> <span class='kw'>&lt;-</span> <span class='no'>p</span>$<span class='fu'>at_time</span>(<span class='no'>current_time</span>))</div><div class='output co'>#&gt; [1] "665376"</div><div class='input'><span class='no'>p</span>$<span class='fu'>verify</span>(<span class='no'>code</span>, <span class='no'>current_time</span> + <span class='fl'>30</span>, <span class='kw'>behind</span> <span class='kw'>=</span> <span class='fl'>1</span>)</div><div class='output co'>#&gt; [1] "2020-04-25 21:47:30 PDT"</div><div class='input'>
 <span class='no'>p</span>$<span class='fu'>provisioning_uri</span>(<span class='st'>"Alice"</span>, <span class='kw'>issuer</span> <span class='kw'>=</span> <span class='st'>"example.com"</span>)</div><div class='output co'>#&gt; [1] "otpauth://totp/example.com:Alice?secret=JBSWY3DPEHPK3PXP&amp;issuer=example.com"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
