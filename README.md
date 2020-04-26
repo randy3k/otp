@@ -49,10 +49,20 @@ p$verify("964230", 8)
 ``` r
 p <- TOTP$new("JBSWY3DPEHPK3PXP")
 (code <- p$now())
-#> [1] "263223"
+#> [1] "506178"
 p$verify(code)
-#> [1] "2020-04-25 22:00:30 PDT"
+#> [1] "2020-04-26 01:08:30 PDT"
 ```
+
+``` r
+raster::image(
+  qrencoder::qrencode_raster(p$provisioning_uri("otp")),
+  asp = 1, col = c("white", "black"), axes = FALSE,
+  xlab = "", ylab = ""
+)
+```
+
+<img src="https://i.imgur.com/Pt6w8eJ.png" width="20%" />
 
 ## Related projects
 

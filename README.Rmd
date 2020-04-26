@@ -74,6 +74,14 @@ p <- TOTP$new("JBSWY3DPEHPK3PXP")
 p$verify(code)
 ```
 
+```{r, out.width = "20%"}
+raster::image(
+  qrencoder::qrencode_raster(p$provisioning_uri("otp")),
+  asp = 1, col = c("white", "black"), axes = FALSE,
+  xlab = "", ylab = ""
+)
+```
+
 ## Related projects
 
 - Ruby's [rotp](https://github.com/mdp/rotp).

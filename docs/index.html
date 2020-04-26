@@ -100,9 +100,15 @@
 <a href="#time-based-one-time-password-totp" class="anchor"></a>Time based One Time Password (TOTP)</h3>
 <div class="sourceCode" id="cb5"><pre class="r"><span class="no">p</span> <span class="kw">&lt;-</span> <span class="no">TOTP</span>$<span class="fu">new</span>(<span class="st">"JBSWY3DPEHPK3PXP"</span>)
 (<span class="no">code</span> <span class="kw">&lt;-</span> <span class="no">p</span>$<span class="fu">now</span>())
-<span class="co">#&gt; [1] "263223"</span>
+<span class="co">#&gt; [1] "506178"</span>
 <span class="no">p</span>$<span class="fu">verify</span>(<span class="no">code</span>)
-<span class="co">#&gt; [1] "2020-04-25 22:00:30 PDT"</span></pre></div>
+<span class="co">#&gt; [1] "2020-04-26 01:08:30 PDT"</span></pre></div>
+<div class="sourceCode" id="cb6"><pre class="r"><span class="kw pkg">raster</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/raster/man/image.html">image</a></span>(
+  <span class="kw pkg">qrencoder</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/qrencoder/man/qrencode_raster.html">qrencode_raster</a></span>(<span class="no">p</span>$<span class="fu">provisioning_uri</span>(<span class="st">"otp"</span>)),
+  <span class="kw">asp</span> <span class="kw">=</span> <span class="fl">1</span>, <span class="kw">col</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"white"</span>, <span class="st">"black"</span>), <span class="kw">axes</span> <span class="kw">=</span> <span class="fl">FALSE</span>,
+  <span class="kw">xlab</span> <span class="kw">=</span> <span class="st">""</span>, <span class="kw">ylab</span> <span class="kw">=</span> <span class="st">""</span>
+)</pre></div>
+<p><img src="https://i.imgur.com/Pt6w8eJ.png" width="20%"></p>
 </div>
 </div>
 <div id="related-projects" class="section level2">
