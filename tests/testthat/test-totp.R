@@ -46,7 +46,7 @@ test_that("totp different period", {
 })
 
 
-test_that("hotp different algorithm", {
+test_that("totp different algorithm", {
   secret <- "JBSWY3DPEHPK3PXP"
 
   p <- TOTP$new(secret, algorithm = "sha256")
@@ -58,4 +58,23 @@ test_that("hotp different algorithm", {
   t <- .POSIXct(1587872481)
   expect_equal(p$at_time(t), "448289")
   expect_equal(p$at_time(t + 30), "761638")
+})
+
+
+test_that("totp provision", {
+  secret <- "JBSWY3DPEHPK3PXP"
+  p <- TOTP$new(secret)
+  expect_equal(
+    p$provisioning_uri("Alice"),
+    "otpauth://totp/Alice?secret=JBSWY3DPEHPK3PXP"
+  )
+  expect_equal(
+    p$provisioning_uri("Alice", issuer = "example.com"),
+    "otpauth://totp/example.com:Alice?secret=JBSWY3DPEHPK3PXP&issuer=example.com"
+  )
+  p <- TOTP$new(secret, digits = 7, algorithm = "sha256", period = 40)
+  expect_equal(
+    p$provisioning_uri("Alice"),
+    "otpauth://totp/Alice?secret=JBSWY3DPEHPK3PXP&period=40&digits=7&algorithm=sha256"
+  )
 })

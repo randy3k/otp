@@ -44,3 +44,22 @@ test_that("hotp different algorithm", {
   expect_equal(p$at(8), "131699")
   expect_equal(p$at(20), "771162")
 })
+
+
+test_that("hotp provision", {
+  secret <- "JBSWY3DPEHPK3PXP"
+  p <- HOTP$new(secret)
+  expect_equal(
+    p$provisioning_uri("Alice"),
+    "otpauth://hotp/Alice?secret=JBSWY3DPEHPK3PXP&counter=0"
+  )
+  expect_equal(
+    p$provisioning_uri("Alice", issuer = "example.com", counter = 5),
+    "otpauth://hotp/example.com:Alice?secret=JBSWY3DPEHPK3PXP&issuer=example.com&counter=5"
+  )
+  p <- HOTP$new(secret, digits = 7, algorithm = "sha256")
+  expect_equal(
+    p$provisioning_uri("Alice", counter = 5),
+    "otpauth://hotp/Alice?secret=JBSWY3DPEHPK3PXP&counter=5&digits=7&algorithm=sha256"
+  )
+})
