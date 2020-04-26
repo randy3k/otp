@@ -1,6 +1,6 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# One Time Password Generation and Verificaiton
+# One Time Password Generation and Verification
 
 [![Github
 Action](https://github.com/randy3k/otp/workflows/build/badge.svg?branch=master)](https://github.com/randy3k/otp)
@@ -49,9 +49,9 @@ p$verify("964230", 8)
 ``` r
 p <- TOTP$new("JBSWY3DPEHPK3PXP")
 (code <- p$now())
-#> [1] "339157"
+#> [1] "263223"
 p$verify(code)
-#> [1] "2020-04-25 21:59:30 PDT"
+#> [1] "2020-04-25 22:00:30 PDT"
 ```
 
 ## Related projects
