@@ -91,8 +91,8 @@ OTP <- R6::R6Class(
 #' HOTP$new(secret, digits = 6L, algorithm = "sha1")
 #' }
 #' Create an One Time Password object
-#' - **secret** a scalar character, the base32-based secret key
-#' - **digits** an integer, the number of digits of the password
+#' - **secret** a scalar character, the base32-based secret key.
+#' - **digits** an integer, the number of digits of the password.
 #' - **algorithm** the hash algorithm used, possible values are
 #'   "sha1", "sha256" and "sha512".
 #'
@@ -101,13 +101,35 @@ OTP <- R6::R6Class(
 #' \preformatted{
 #' HOTP$at(counter)
 #' }
-#' Generate an one time password at counter value
-#' - **counter** a non-negative integer
+#' Generate an one time password at counter value.
+#' - **counter** a non-negative integer.
 #'
+#' \preformatted{
+#' HOTP$verify(code, counter, ahead = 0L)
+#' }
+#' Verify if a given one time password is valid. Returns the matching `counter` value if there
+#' is a match within the `ahead`. Otherwise return `NULL`.
+#' - **code** a string of digits.
+#' - **counter** a non-negative integer.
+#' - **ahead** a non-negative integer, the amount of counter ticks to look ahead.
+#'
+#' \preformatted{
+#' HOTP$provisioning_uri(name, issuer = NULL, counter = 0L)
+#' }
+#' Return a provisioning uri which is compatible with google authenticator format.
+#' - **name** account name.
+#' - **issuer** issuer name.
+#' - **counter** a non-negative integer, initial counter.
 #'
 #' @examples
-#' p <- HOTP$new("")
-#' @seealso https://tools.ietf.org/html/rfc4226
+#' p <- HOTP$new("JBSWY3DPEHPK3PXP")
+#' p$at(8)
+#'
+#' p$verify("964230", 8)
+#' p$verify("964230", 7, ahead = 3)
+#'
+#' p$provisioning_uri("Alice", issuer = "example.com", counter = 5)
+#' @seealso \url{https://tools.ietf.org/html/rfc4226}
 #' @export
 HOTP <- R6::R6Class(
     "HOTP",
@@ -119,9 +141,9 @@ HOTP <- R6::R6Class(
         at = function(counter) {
             private$generate(counter)
         },
-        verify = function(code, counter, window = 0L) {
+        verify = function(code, counter, ahead = 0L) {
             g <- private$generate
-            for (i in seq_len(window + 1L)) {
+            for (i in seq_len(ahead + 1L)) {
                 if (identical(g(counter + i - 1L), code)) {
                     return(counter + i - 1L)
                 }
@@ -146,6 +168,55 @@ HOTP <- R6::R6Class(
 #'
 #' An R6 class that implements the Time based One Time Password (TOTP) algorithm.
 #'
+#' @details
+#' # Initialization
+#'
+#' \preformatted{
+#' TOTP$new(secret, digits = 6L, period = 30, algorithm = "sha1")
+#' }
+#' Create an One Time Password object
+#' - **secret** a scalar character, the base32-based secret key.
+#' - **digits** an integer, the number of digits of the password.
+#' - **period** a positive number, the number of seconds in a time step.
+#' - **algorithm** the hash algorithm used, possible values are
+#'   "sha1", "sha256" and "sha512".
+#'
+#' # Methods
+#'
+#' \preformatted{
+#' TOTP$at_time(t)
+#' }
+#' Generate an one time password at a given time value.
+#' - **t** a POSIXct object or an integer that represents the numbers of second since UNIX epoch.
+#'
+#' \preformatted{
+#' HOTP$verify(code, t, behind = 0L)
+#' }
+#' Verify if a given one time password is valid. Returns the beginning time of the time
+#'   step window if there is a match within the `behind`. Otherwise return `NULL`.
+#' - **code** a string of digits.
+#' - **t** a POSIXct object or an integer that represents the numbers of second since UNIX epoch.
+#' - **behind** a non-negative integer, the amount of time steps to look behind. A value of `1`
+#'   means to accept the code before `period` second ago.
+#'
+#' \preformatted{
+#' HOTP$provisioning_uri(name, issuer = NULL)
+#' }
+#' Return a provisioning uri which is compatible with google authenticator format.
+#' - **name** account name.
+#' - **issuer** issuer name.
+#'
+#' @examples
+#' p <- TOTP$new("JBSWY3DPEHPK3PXP")
+#' (code <- p$now())
+#' p$verify(code, behind = 1)
+#'
+#' (current_time <- Sys.time())
+#' (code <- p$at_time(current_time))
+#' p$verify(code, current_time + 30, behind = 1)
+#'
+#' p$provisioning_uri("Alice", issuer = "example.com")
+#' @seealso \url{https://tools.ietf.org/html/rfc6238}
 #' @export
 TOTP <- R6::R6Class(
     "TOTP",
@@ -153,7 +224,10 @@ TOTP <- R6::R6Class(
     private = list(
         period = NULL,
         time_step = function(t) {
-            as.double(as.POSIXct(t)) %/% private$period
+            if (inherits(t, "POSIXct")) {
+                t <- as.double(t)
+            }
+            t %/% private$period
         }
     ),
     public = list(
@@ -167,18 +241,15 @@ TOTP <- R6::R6Class(
         now = function() {
             self$at_time(Sys.time())
         },
-        verify = function(code, t = Sys.time(), window = 1L) {
+        verify = function(code, t = Sys.time(), behind = 0L) {
             g <- private$generate
-            ts <- private$time_step(Sys.time())
+            ts <- private$time_step(t)
             if (identical(g(ts), code)) {
-                return(t)
+                return(.POSIXct(ts * private$period))
             }
-            for (i in seq_len(window)) {
+            for (i in seq_len(behind)) {
                 if (identical(g(ts - i), code)) {
-                    return(as.POSIXct((ts - i) * private$period))
-                }
-                if (identical(g(ts + i), code)) {
-                    return(as.POSIXct((ts + i) * private$period))
+                    return(.POSIXct((ts - i) * private$period))
                 }
             }
             NULL

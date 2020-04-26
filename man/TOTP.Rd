@@ -6,3 +6,62 @@
 \description{
 An R6 class that implements the Time based One Time Password (TOTP) algorithm.
 }
+\section{Initialization}{
+\preformatted{
+TOTP$new(secret, digits = 6L, period = 30, algorithm = "sha1")
+}
+Create an One Time Password object
+\itemize{
+\item \strong{secret} a scalar character, the base32-based secret key.
+\item \strong{digits} an integer, the number of digits of the password.
+\item \strong{period} a positive number, the number of seconds in a time step.
+\item \strong{algorithm} the hash algorithm used, possible values are
+"sha1", "sha256" and "sha512".
+}
+}
+
+\section{Methods}{
+\preformatted{
+TOTP$at_time(t)
+}
+Generate an one time password at a given time value.
+\itemize{
+\item \strong{t} a POSIXct or POSIXct-compatible object.
+}
+
+\preformatted{
+HOTP$verify(code, t, behind = 0L)
+}
+Verify if a given one time password is valid. Returns the beginning time of the time
+step window if there is a match within the \code{behind}. Otherwise return \code{NULL}.
+\itemize{
+\item \strong{code} a string of digits.
+\item \strong{t} a POSIXct or POSIXct-compatible object.
+\item \strong{behind} a non-negative integer, the amount of time steps to look behind. A value of \code{1}
+means to accept the code before \code{period} second ago.
+}
+
+\preformatted{
+HOTP$provisioning_uri(name, issuer = NULL)
+}
+Return a provisioning uri which is compatible with google authenticator format.
+\itemize{
+\item \strong{name} account name.
+\item \strong{issuer} issuer name.
+}
+}
+
+\examples{
+p <- TOTP$new("JBSWY3DPEHPK3PXP")
+(code <- p$now())
+p$verify(code, behind = 1)
+
+(current_time <- Sys.time())
+(code <- p$at_time(current_time))
+p$verify(code, current_time + 30, behind = 1)
+
+p$provisioning_uri("Alice", issuer = "example.com")
+}
+\seealso{
+\url{https://tools.ietf.org/html/rfc6238}
+}

@@ -8,7 +8,7 @@ int_to_bytes <- function(n) {
 }
 
 dymtrunc <- function(h) {
-    offset <- as.integer(h[20] & as.raw(0xf))
+    offset <- as.integer(h[length(h)] & as.raw(0xf))
     u <- h[(offset + 1):(offset + 4)]
     u[1] <- u[1] & as.raw(0x7f)
     sum(as.integer(u) * 256 ^ (3:0))

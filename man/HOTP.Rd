@@ -12,8 +12,8 @@ HOTP$new(secret, digits = 6L, algorithm = "sha1")
 }
 Create an One Time Password object
 \itemize{
-\item \strong{secret} a scalar character, the base32-based secret key
-\item \strong{digits} an integer, the number of digits of the password
+\item \strong{secret} a scalar character, the base32-based secret key.
+\item \strong{digits} an integer, the number of digits of the password.
 \item \strong{algorithm} the hash algorithm used, possible values are
 "sha1", "sha256" and "sha512".
 }
@@ -23,15 +23,42 @@ Create an One Time Password object
 \preformatted{
 HOTP$at(counter)
 }
-Generate an one time password at counter value
+Generate an one time password at counter value.
 \itemize{
-\item \strong{counter} a non-negative integer
+\item \strong{counter} a non-negative integer.
+}
+
+\preformatted{
+HOTP$verify(code, counter, ahead = 0L)
+}
+Verify if a given one time password is valid. Returns the matching \code{counter} value if there
+is a match within the \code{ahead}. Otherwise return \code{NULL}.
+\itemize{
+\item \strong{code} a string of digits.
+\item \strong{counter} a non-negative integer.
+\item \strong{ahead} a non-negative integer, the amount of counter ticks to look ahead.
+}
+
+\preformatted{
+HOTP$provisioning_uri(name, issuer = NULL, counter = 0L)
+}
+Return a provisioning uri which is compatible with google authenticator format.
+\itemize{
+\item \strong{name} account name.
+\item \strong{issuer} issuer name.
+\item \strong{counter} a non-negative integer, initial counter.
 }
 }
 
 \examples{
-p <- HOTP$new("")
+p <- HOTP$new("JBSWY3DPEHPK3PXP")
+p$at(8)
+
+p$verify("964230", 8)
+p$verify("964230", 7, ahead = 3)
+
+p$provisioning_uri("Alice", issuer = "example.com", counter = 5)
 }
 \seealso{
-https://tools.ietf.org/html/rfc4226
+\url{https://tools.ietf.org/html/rfc4226}
 }

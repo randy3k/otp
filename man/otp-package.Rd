@@ -2,7 +2,7 @@
 % Please edit documentation in R/otp.R
 \docType{package}
 \name{otp-package}
-\title{otp: One Time Password}
+\title{otp: One Time Password Generation and Verificaiton}
 \description{
 Generating and validating HMAC-based One-time Password (HOTP) 
     and Time Based One-time Password (TOTP) according to RFC 4226 and RFC 6238.

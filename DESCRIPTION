@@ -1,5 +1,5 @@
 Package: otp
-Title: One Time Password
+Title: One Time Password Generation and Verificaiton
 Version: 0.1.0
 Authors@R: 
     person(given = "Randy",

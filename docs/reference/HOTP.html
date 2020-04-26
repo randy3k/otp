@@ -124,8 +124,8 @@
     
 <pre>
 <span class='no'>HOTP</span>$<span class='fu'>new</span>(<span class='no'>secret</span>, <span class='kw'>digits</span> <span class='kw'>=</span> <span class='fl'>6L</span>, <span class='kw'>algorithm</span> <span class='kw'>=</span> <span class='st'>"sha1"</span>)</pre><p>Create an One Time Password object</p><ul>
-<li><p><strong>secret</strong> a scalar character, the base32-based secret key</p></li>
-<li><p><strong>digits</strong> an integer, the number of digits of the password</p></li>
+<li><p><strong>secret</strong> a scalar character, the base32-based secret key.</p></li>
+<li><p><strong>digits</strong> an integer, the number of digits of the password.</p></li>
 <li><p><strong>algorithm</strong> the hash algorithm used, possible values are
 "sha1", "sha256" and "sha512".</p></li>
 </ul>
@@ -134,16 +134,34 @@
 
     
 <pre>
-<span class='no'>HOTP</span>$<span class='fu'>at</span>(<span class='no'>counter</span>)</pre><p>Generate an one time password at counter value</p><ul>
-<li><p><strong>counter</strong> a non-negative integer</p></li>
+<span class='no'>HOTP</span>$<span class='fu'>at</span>(<span class='no'>counter</span>)</pre><p>Generate an one time password at counter value.</p><ul>
+<li><p><strong>counter</strong> a non-negative integer.</p></li>
+</ul>
+
+<pre>
+<span class='no'>HOTP</span>$<span class='fu'>verify</span>(<span class='no'>code</span>, <span class='no'>counter</span>, <span class='kw'>ahead</span> <span class='kw'>=</span> <span class='fl'>0L</span>)</pre><p>Verify if a given one time password is valid. Returns the matching <code>counter</code> value if there
+is a match within the <code>ahead</code>. Otherwise return <code>NULL</code>.</p><ul>
+<li><p><strong>code</strong> a string of digits.</p></li>
+<li><p><strong>counter</strong> a non-negative integer.</p></li>
+<li><p><strong>ahead</strong> a non-negative integer, the amount of counter ticks to look ahead.</p></li>
+</ul>
+
+<pre>
+<span class='no'>HOTP</span>$<span class='fu'>provisioning_uri</span>(<span class='no'>name</span>, <span class='kw'>issuer</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>counter</span> <span class='kw'>=</span> <span class='fl'>0L</span>)</pre><p>Return a provisioning uri which is compatible with google authenticator format.</p><ul>
+<li><p><strong>name</strong> account name.</p></li>
+<li><p><strong>issuer</strong> issuer name.</p></li>
+<li><p><strong>counter</strong> a non-negative integer, initial counter.</p></li>
 </ul>
 
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p>https://tools.ietf.org/html/rfc4226</p></div>
+    <div class='dont-index'><p><a href='https://tools.ietf.org/html/rfc4226'>https://tools.ietf.org/html/rfc4226</a></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='no'>HOTP</span>$<span class='fu'>new</span>(<span class='st'>""</span>)</div></pre>
+    <pre class="examples"><div class='input'><span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='no'>HOTP</span>$<span class='fu'>new</span>(<span class='st'>"JBSWY3DPEHPK3PXP"</span>)
+<span class='no'>p</span>$<span class='fu'>at</span>(<span class='fl'>8</span>)</div><div class='output co'>#&gt; [1] "964230"</div><div class='input'>
+<span class='no'>p</span>$<span class='fu'>verify</span>(<span class='st'>"964230"</span>, <span class='fl'>8</span>)</div><div class='output co'>#&gt; [1] 8</div><div class='input'><span class='no'>p</span>$<span class='fu'>verify</span>(<span class='st'>"964230"</span>, <span class='fl'>7</span>, <span class='kw'>ahead</span> <span class='kw'>=</span> <span class='fl'>3</span>)</div><div class='output co'>#&gt; [1] 8</div><div class='input'>
+<span class='no'>p</span>$<span class='fu'>provisioning_uri</span>(<span class='st'>"Alice"</span>, <span class='kw'>issuer</span> <span class='kw'>=</span> <span class='st'>"example.com"</span>, <span class='kw'>counter</span> <span class='kw'>=</span> <span class='fl'>5</span>)</div><div class='output co'>#&gt; [1] "otpauth://hotp/example.com:Alice?secret=JBSWY3DPEHPK3PXP&amp;issuer=example.com&amp;counter=5"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

@@ -28,3 +28,19 @@ test_that("hotp more digits", {
   expect_equal(p$at(8), "20964230")
   expect_equal(p$at(20), "34461867")
 })
+
+
+test_that("hotp different algorithm", {
+  secret <- "JBSWY3DPEHPK3PXP"
+  p <- HOTP$new(secret, algorithm = "sha256")
+  expect_equal(p$at(8), "349119")
+  expect_equal(p$at(20), "906628")
+})
+
+
+test_that("hotp different algorithm", {
+  secret <- "JBSWY3DPEHPK3PXP"
+  p <- HOTP$new(secret, algorithm = "sha512")
+  expect_equal(p$at(8), "131699")
+  expect_equal(p$at(20), "771162")
+})
