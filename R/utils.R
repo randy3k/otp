@@ -7,7 +7,8 @@ int_to_bytes <- function(n) {
     b
 }
 
-dymtrunc <- function(h) {
+# see section 5.4 of https://tools.ietf.org/html/rfc4226#page-7
+dyn_extract <- function(h) {
     offset <- as.integer(h[length(h)] & as.raw(0xf))
     u <- h[(offset + 1):(offset + 4)]
     u[1] <- u[1] & as.raw(0x7f)

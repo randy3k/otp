@@ -22,7 +22,7 @@ OTP <- R6::R6Class(
                 stop("unknown algorithm")
             }
             h <- sha(int_to_bytes(value), private$secret)
-            sprintf(paste0("%0", private$digits, "d"), dymtrunc(h) %% 10L^private$digits)
+            sprintf(paste0("%0", private$digits, "d"), dyn_extract(h) %% 10L^private$digits)
         }
     ),
     public = list(
