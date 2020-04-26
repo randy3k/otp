@@ -2,10 +2,13 @@
 
 # One Time Password Generation and Verificaiton
 
-<!-- badges: start -->
+[![Github
+Action](https://github.com/randy3k/otp/workflows/build/badge.svg?branch=master)](https://github.com/randy3k/otp)
+[![codecov](https://codecov.io/gh/randy3k/otp/branch/master/graph/badge.svg)](https://codecov.io/gh/randy3k/otp)
+[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/otp)](https://cran.r-project.org/package=otp)
+[![](http://cranlogs.r-pkg.org/badges/grand-total/otp)](https://cran.r-project.org/package=otp)
 
-[![CRAN status](https://www.r-pkg.org/badges/version/otp)](https://CRAN.R-project.org/package=otp)
-<!-- badges: end -->
+Documentation: [http://randy3k.github.io/otp](https://randy3k.github.io/otp)
 
 Generating and validating HMAC-based One-time Password (HOTP)
 and Time Based One-time Password (TOTP) according to RFC 4226 and RFC 6238.
@@ -46,9 +49,9 @@ p$verify("964230", 8)
 ``` r
 p <- TOTP$new("JBSWY3DPEHPK3PXP")
 (code <- p$now())
-#> [1] "904156"
+#> [1] "703542"
 p$verify(code)
-#> [1] "2020-04-25 21:46:00 PDT"
+#> [1] "2020-04-25 21:53:00 PDT"
 ```
 
 ## Related projects
