@@ -4,8 +4,11 @@
 \name{otp-package}
 \title{otp: One Time Password Generation and Verification}
 \description{
-Generating and validating HMAC-based One-time Password (HOTP) 
-    and Time Based One-time Password (TOTP) according to RFC 4226 and RFC 6238.
+Generating and validating One-time Password based on 
+    Hash-based Message Authentication Code (HOTP) 
+    and Time Based One-time Password (TOTP)
+    according to RFC 4226 <https://tools.ietf.org/html/rfc4226> and
+    RFC 6238 <https://tools.ietf.org/html/rfc6238>.
 }
 \seealso{
 Useful links:
@@ -16,6 +19,6 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Randy Lai \email{randy.cs.lai@gmail.com}
+\strong{Maintainer}: Randy Lai \email{randy.cs.lai@gmail.com} [copyright holder]
 
 }

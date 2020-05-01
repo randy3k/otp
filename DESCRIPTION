@@ -4,10 +4,13 @@ Version: 0.1.0
 Authors@R: 
     person(given = "Randy",
            family = "Lai",
-           role = c("aut", "cre"),
+           role = c("aut", "cre", "cph"),
            email = "randy.cs.lai@gmail.com")
-Description: Generating and validating HMAC-based One-time Password (HOTP) 
-    and Time Based One-time Password (TOTP) according to RFC 4226 and RFC 6238.
+Description: Generating and validating One-time Password based on 
+    Hash-based Message Authentication Code (HOTP) 
+    and Time Based One-time Password (TOTP)
+    according to RFC 4226 <https://tools.ietf.org/html/rfc4226> and
+    RFC 6238 <https://tools.ietf.org/html/rfc6238>.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
