@@ -8,7 +8,7 @@ Action](https://github.com/randy3k/otp/workflows/build/badge.svg?branch=master)]
 [![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/otp)](https://cran.r-project.org/package=otp)
 [![](https://cranlogs.r-pkg.org/badges/grand-total/otp)](https://cran.r-project.org/package=otp)
 
-Github: [https://github.com/randy3k/arrangements](https://github.com/randy3k/otp)
+Github: <https://github.com/randy3k/otp>
 
 Documentation: <https://randy3k.github.io/otp>
 
@@ -54,9 +54,9 @@ p$verify("964230", 8)
 ``` r
 p <- TOTP$new("JBSWY3DPEHPK3PXP")
 (code <- p$now())
-#> [1] "673308"
+#> [1] "938381"
 p$verify(code)
-#> [1] "2020-05-06 13:29:00 PDT"
+#> [1] "2020-05-06 13:35:00 PDT"
 ```
 
 ``` r
@@ -67,7 +67,7 @@ raster::image(
 )
 ```
 
-<img src="https://i.imgur.com/nn2vHze.png" width="20%" />
+<img src="https://i.imgur.com/A37TJFO.png" width="20%" />
 
 ## Related projects
 

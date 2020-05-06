@@ -35,7 +35,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">otp</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0.9999</span>
       </span>
     </div>
 
@@ -74,7 +74,7 @@
 <div class="page-header"><h1 class="hasAnchor">
 <a href="#one-time-password-generation-and-verification" class="anchor"></a>One Time Password Generation and Verification</h1></div>
 
-<p>Github: <a href="https://github.com/randy3k/otp">https://github.com/randy3k/arrangements</a></p>
+<p>Github: <a href="https://github.com/randy3k/otp" class="uri">https://github.com/randy3k/otp</a></p>
 <p>Documentation: <a href="https://randy3k.github.io/otp" class="uri">https://randy3k.github.io/otp</a></p>
 <p>Generating and validating One-time Password based on Hash-based Message Authentication Code (HOTP) and Time Based One-time Password (TOTP) according to RFC 4226 <a href="https://tools.ietf.org/html/rfc4226" class="uri">https://tools.ietf.org/html/rfc4226</a> and RFC 6238 <a href="https://tools.ietf.org/html/rfc6238" class="uri">https://tools.ietf.org/html/rfc6238</a>.</p>
 <div id="installation" class="section level2">
@@ -104,15 +104,15 @@
 <a href="#time-based-one-time-password-totp" class="anchor"></a>Time based One Time Password (TOTP)</h3>
 <div class="sourceCode" id="cb5"><pre class="r"><span class="no">p</span> <span class="kw">&lt;-</span> <span class="no">TOTP</span>$<span class="fu">new</span>(<span class="st">"JBSWY3DPEHPK3PXP"</span>)
 (<span class="no">code</span> <span class="kw">&lt;-</span> <span class="no">p</span>$<span class="fu">now</span>())
-<span class="co">#&gt; [1] "673308"</span>
+<span class="co">#&gt; [1] "938381"</span>
 <span class="no">p</span>$<span class="fu">verify</span>(<span class="no">code</span>)
-<span class="co">#&gt; [1] "2020-05-06 13:29:00 PDT"</span></pre></div>
+<span class="co">#&gt; [1] "2020-05-06 13:35:00 PDT"</span></pre></div>
 <div class="sourceCode" id="cb6"><pre class="r"><span class="kw pkg">raster</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/raster/man/image.html">image</a></span>(
   <span class="kw pkg">qrencoder</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/qrencoder/man/qrencode_raster.html">qrencode_raster</a></span>(<span class="no">p</span>$<span class="fu">provisioning_uri</span>(<span class="st">"otp"</span>)),
   <span class="kw">asp</span> <span class="kw">=</span> <span class="fl">1</span>, <span class="kw">col</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"white"</span>, <span class="st">"black"</span>), <span class="kw">axes</span> <span class="kw">=</span> <span class="fl">FALSE</span>,
   <span class="kw">xlab</span> <span class="kw">=</span> <span class="st">""</span>, <span class="kw">ylab</span> <span class="kw">=</span> <span class="st">""</span>
 )</pre></div>
-<p><img src="https://i.imgur.com/nn2vHze.png" width="20%"></p>
+<p><img src="https://i.imgur.com/A37TJFO.png" width="20%"></p>
 </div>
 </div>
 <div id="related-projects" class="section level2">

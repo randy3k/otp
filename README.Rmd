@@ -32,7 +32,7 @@ Action](https://github.com/randy3k/otp/workflows/build/badge.svg?branch=master)]
 [![](https://cranlogs.r-pkg.org/badges/grand-total/otp)](https://cran.r-project.org/package=otp)
 
 
-Github: [https://github.com/randy3k/arrangements](https://github.com/randy3k/otp)
+Github: [https://github.com/randy3k/otp](https://github.com/randy3k/otp)
 
 Documentation: [https://randy3k.github.io/otp](https://randy3k.github.io/otp)
 

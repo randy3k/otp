@@ -1,6 +1,6 @@
 Package: otp
 Title: One Time Password Generation and Verification
-Version: 0.1.0
+Version: 0.1.0.9999
 Authors@R: 
     person(given = "Randy",
            family = "Lai",
