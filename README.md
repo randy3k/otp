@@ -5,10 +5,12 @@
 [![Github
 Action](https://github.com/randy3k/otp/workflows/build/badge.svg?branch=master)](https://github.com/randy3k/otp)
 [![codecov](https://codecov.io/gh/randy3k/otp/branch/master/graph/badge.svg)](https://codecov.io/gh/randy3k/otp)
-[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/otp)](https://cran.r-project.org/package=otp)
-[![](http://cranlogs.r-pkg.org/badges/grand-total/otp)](https://cran.r-project.org/package=otp)
+[![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/otp)](https://cran.r-project.org/package=otp)
+[![](https://cranlogs.r-pkg.org/badges/grand-total/otp)](https://cran.r-project.org/package=otp)
 
-Documentation: [http://randy3k.github.io/otp](https://randy3k.github.io/otp)
+Github: [https://github.com/randy3k/arrangements](https://github.com/randy3k/otp)
+
+Documentation: <https://randy3k.github.io/otp>
 
 Generating and validating One-time Password based on
 Hash-based Message Authentication Code (HOTP)
@@ -52,9 +54,9 @@ p$verify("964230", 8)
 ``` r
 p <- TOTP$new("JBSWY3DPEHPK3PXP")
 (code <- p$now())
-#> [1] "467326"
+#> [1] "673308"
 p$verify(code)
-#> [1] "2020-04-30 21:59:30 PDT"
+#> [1] "2020-05-06 13:29:00 PDT"
 ```
 
 ``` r
@@ -65,7 +67,7 @@ raster::image(
 )
 ```
 
-<img src="https://i.imgur.com/k0bXKE1.png" width="20%" />
+<img src="https://i.imgur.com/nn2vHze.png" width="20%" />
 
 ## Related projects
 

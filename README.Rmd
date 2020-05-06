@@ -28,11 +28,13 @@ cat(c("# ", paste(trimws(strsplit(title, "\n")[[1]]), collapse = " ")))
 [![Github
 Action](https://github.com/randy3k/otp/workflows/build/badge.svg?branch=master)](https://github.com/randy3k/otp)
 [![codecov](https://codecov.io/gh/randy3k/otp/branch/master/graph/badge.svg)](https://codecov.io/gh/randy3k/otp)
-[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/otp)](https://cran.r-project.org/package=otp)
-[![](http://cranlogs.r-pkg.org/badges/grand-total/otp)](https://cran.r-project.org/package=otp)
+[![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/otp)](https://cran.r-project.org/package=otp)
+[![](https://cranlogs.r-pkg.org/badges/grand-total/otp)](https://cran.r-project.org/package=otp)
 
-Documentation: [http://randy3k.github.io/otp](https://randy3k.github.io/otp)
 
+Github: [https://github.com/randy3k/arrangements](https://github.com/randy3k/otp)
+
+Documentation: [https://randy3k.github.io/otp](https://randy3k.github.io/otp)
 
 ```{r results="asis", echo = FALSE, eval = TRUE}
 cat(d[colnames(d) == "Description"])
