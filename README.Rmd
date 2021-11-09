@@ -1,19 +1,11 @@
 ---
-output:
-  reprex::reprex_document:
-    advertise: false
-    html_preview: false
+output: github_document
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 ```{r, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>",
-  fig.path = "man/figures/README-",
-  out.width = "100%"
-)
+knitr::opts_knit$set(upload.fun = knitr::imgur_upload)
 ```
 
 ```{r results='asis', echo = FALSE, eval = TRUE}
@@ -25,11 +17,10 @@ title <- d[colnames(d) == "Title"]
 cat(c("# ", paste(trimws(strsplit(title, "\n")[[1]]), collapse = " ")))
 ```
 
-[![Github
-Action](https://github.com/randy3k/otp/workflows/build/badge.svg?branch=master)](https://github.com/randy3k/otp)
+[![check](https://github.com/randy3k/otp/actions/workflows/check.yaml/badge.svg)](https://github.com/randy3k/otp/actions/workflows/check.yaml)
 [![codecov](https://codecov.io/gh/randy3k/otp/branch/master/graph/badge.svg)](https://codecov.io/gh/randy3k/otp)
-[![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/otp)](https://cran.r-project.org/package=otp)
-[![](https://cranlogs.r-pkg.org/badges/grand-total/otp)](https://cran.r-project.org/package=otp)
+[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/otp)](https://cran.r-project.org/package=otp)
+[![](http://cranlogs.r-pkg.org/badges/grand-total/otp)](https://cran.r-project.org/package=otp)
 
 
 Github: [https://github.com/randy3k/otp](https://github.com/randy3k/otp)
