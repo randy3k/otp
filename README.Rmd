@@ -25,7 +25,7 @@ cat(c("# ", paste(trimws(strsplit(title, "\n")[[1]]), collapse = " ")))
 
 Github: [https://github.com/randy3k/otp](https://github.com/randy3k/otp)
 
-Documentation: [https://randy3k.github.io/otp](https://randy3k.github.io/otp)
+Documentation: [https://randy3k.github.io/otp](https://randy3k.github.io/otp/)
 
 ```{r results="asis", echo = FALSE, eval = TRUE}
 cat(d[colnames(d) == "Description"])

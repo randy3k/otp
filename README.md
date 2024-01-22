@@ -10,12 +10,13 @@
 
 Github: <https://github.com/randy3k/otp>
 
-Documentation: <https://randy3k.github.io/otp>
+Documentation:
+[https://randy3k.github.io/otp](https://randy3k.github.io/otp/)
 
 Generating and validating One-time Password based on Hash-based Message
 Authentication Code (HOTP) and Time Based One-time Password (TOTP)
-according to RFC 4226 <https://tools.ietf.org/html/rfc4226> and RFC 6238
-<https://tools.ietf.org/html/rfc6238>.
+according to RFC 4226 <https://datatracker.ietf.org/doc/html/rfc4226>
+and RFC 6238 <https://datatracker.ietf.org/doc/html/rfc6238>.
 
 ## Installation
 
@@ -61,13 +62,13 @@ p <- TOTP$new("JBSWY3DPEHPK3PXP")
 (code <- p$now())
 ```
 
-    ## [1] "529411"
+    ## [1] "669178"
 
 ``` r
 p$verify(code)
 ```
 
-    ## [1] "2021-11-08 21:19:30 PST"
+    ## [1] "2024-01-22 14:00:30 PST"
 
 ``` r
 raster::image(
@@ -77,7 +78,7 @@ raster::image(
 )
 ```
 
-<img src="https://i.imgur.com/TYAO8df.png" width="20%" />
+<img src="https://i.imgur.com/7XW8sR6.png" width="20%" />
 
 ## Related projects
 
