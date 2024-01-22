@@ -1,6 +1,5 @@
 #' @docType package
 #' @importFrom base64url base32_decode base32_encode
-#' @aliases NULL
 "_PACKAGE"
 
 
