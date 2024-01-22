@@ -2,13 +2,11 @@
 % Please edit documentation in R/otp.R
 \docType{package}
 \name{otp-package}
+\alias{otp}
+\alias{otp-package}
 \title{otp: One Time Password Generation and Verification}
 \description{
-Generating and validating One-time Password based on 
-    Hash-based Message Authentication Code (HOTP) 
-    and Time Based One-time Password (TOTP)
-    according to RFC 4226 <https://tools.ietf.org/html/rfc4226> and
-    RFC 6238 <https://tools.ietf.org/html/rfc6238>.
+Generating and validating One-time Password based on Hash-based Message Authentication Code (HOTP) and Time Based One-time Password (TOTP) according to RFC 4226 \url{https://tools.ietf.org/html/rfc4226} and RFC 6238 \url{https://tools.ietf.org/html/rfc6238}.
 }
 \seealso{
 Useful links:

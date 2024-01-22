@@ -1,6 +1,7 @@
 Package: otp
 Title: One Time Password Generation and Verification
-Version: 0.1.0.9999
+Version: 0.1.1
+Date: 2024-01-22
 Authors@R: 
     person(given = "Randy",
            family = "Lai",
@@ -21,7 +22,7 @@ Imports:
     base64url,
     openssl
 Roxygen: list(r6 = FALSE, markdown = TRUE)
-RoxygenNote: 7.1.0.9000
+RoxygenNote: 7.3.0
 Suggests: 
     testthat (>= 2.1.0),
     covr
