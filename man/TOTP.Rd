@@ -63,5 +63,5 @@ p$verify(code, current_time + 30, behind = 1)
 p$provisioning_uri("Alice", issuer = "example.com")
 }
 \seealso{
-\url{https://tools.ietf.org/html/rfc6238}
+\url{https://datatracker.ietf.org/doc/html/rfc6238}
 }

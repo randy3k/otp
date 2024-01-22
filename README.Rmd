@@ -18,7 +18,7 @@ cat(c("# ", paste(trimws(strsplit(title, "\n")[[1]]), collapse = " ")))
 ```
 
 [![check](https://github.com/randy3k/otp/actions/workflows/check.yaml/badge.svg)](https://github.com/randy3k/otp/actions/workflows/check.yaml)
-[![codecov](https://codecov.io/gh/randy3k/otp/branch/master/graph/badge.svg)](https://codecov.io/gh/randy3k/otp)
+[![codecov](https://codecov.io/gh/randy3k/otp/branch/master/graph/badge.svg)](https://app.codecov.io/gh/randy3k/otp)
 [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/otp)](https://cran.r-project.org/package=otp)
 [![](http://cranlogs.r-pkg.org/badges/grand-total/otp)](https://cran.r-project.org/package=otp)
 
