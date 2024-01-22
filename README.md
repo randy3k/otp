@@ -4,7 +4,7 @@
 # One Time Password Generation and Verification
 
 [![check](https://github.com/randy3k/otp/actions/workflows/check.yaml/badge.svg)](https://github.com/randy3k/otp/actions/workflows/check.yaml)
-[![codecov](https://codecov.io/gh/randy3k/otp/branch/master/graph/badge.svg)](https://codecov.io/gh/randy3k/otp)
+[![codecov](https://codecov.io/gh/randy3k/otp/branch/master/graph/badge.svg)](https://app.codecov.io/gh/randy3k/otp)
 [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/otp)](https://cran.r-project.org/package=otp)
 [![](http://cranlogs.r-pkg.org/badges/grand-total/otp)](https://cran.r-project.org/package=otp)
 
@@ -62,13 +62,13 @@ p <- TOTP$new("JBSWY3DPEHPK3PXP")
 (code <- p$now())
 ```
 
-    ## [1] "669178"
+    ## [1] "012318"
 
 ``` r
 p$verify(code)
 ```
 
-    ## [1] "2024-01-22 14:00:30 PST"
+    ## [1] "2024-01-22 15:55:30 PST"
 
 ``` r
 raster::image(
@@ -78,7 +78,7 @@ raster::image(
 )
 ```
 
-<img src="https://i.imgur.com/7XW8sR6.png" width="20%" />
+<img src="https://i.imgur.com/IHa0bMm.png" width="20%" />
 
 ## Related projects
 

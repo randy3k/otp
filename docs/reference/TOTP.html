@@ -84,16 +84,16 @@ means to accept the code before <code>period</code> seconds ago.</p></li>
     <h2>Examples</h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">p</span> <span class="op">&lt;-</span> <span class="va">TOTP</span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="st">"JBSWY3DPEHPK3PXP"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">(</span><span class="va">code</span> <span class="op">&lt;-</span> <span class="va">p</span><span class="op">$</span><span class="fu">now</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "512661"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "589341"</span>
 <span class="r-in"><span><span class="va">p</span><span class="op">$</span><span class="fu">verify</span><span class="op">(</span><span class="va">code</span>, behind <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2024-01-22 14:19:30 PST"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2024-01-22 15:56:00 PST"</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="op">(</span><span class="va">current_time</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html" class="external-link">Sys.time</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2024-01-22 14:19:41 PST"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2024-01-22 15:56:23 PST"</span>
 <span class="r-in"><span><span class="op">(</span><span class="va">code</span> <span class="op">&lt;-</span> <span class="va">p</span><span class="op">$</span><span class="fu">at_time</span><span class="op">(</span><span class="va">current_time</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "512661"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "589341"</span>
 <span class="r-in"><span><span class="va">p</span><span class="op">$</span><span class="fu">verify</span><span class="op">(</span><span class="va">code</span>, <span class="va">current_time</span> <span class="op">+</span> <span class="fl">30</span>, behind <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2024-01-22 14:19:30 PST"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2024-01-22 15:56:00 PST"</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">p</span><span class="op">$</span><span class="fu">provisioning_uri</span><span class="op">(</span><span class="st">"Alice"</span>, issuer <span class="op">=</span> <span class="st">"example.com"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "otpauth://totp/example.com:Alice?secret=JBSWY3DPEHPK3PXP&amp;issuer=example.com"</span>

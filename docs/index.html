@@ -69,7 +69,7 @@
 <div class="section level1">
 <div class="page-header"><h1 id="one-time-password-generation-and-verification">One Time Password Generation and Verification<a class="anchor" aria-label="anchor" href="#one-time-password-generation-and-verification"></a>
 </h1></div>
-<p><a href="https://github.com/randy3k/otp/actions/workflows/check.yaml" class="external-link"><img src="https://github.com/randy3k/otp/actions/workflows/check.yaml/badge.svg" alt="check"></a> <a href="https://codecov.io/gh/randy3k/otp" class="external-link"><img src="https://codecov.io/gh/randy3k/otp/branch/master/graph/badge.svg" alt="codecov"></a> <a href="https://cran.r-project.org/package=otp" class="external-link"><img src="http://www.r-pkg.org/badges/version/otp" alt="CRAN_Status_Badge"></a> <a href="https://cran.r-project.org/package=otp" class="external-link"><img src="http://cranlogs.r-pkg.org/badges/grand-total/otp"></a></p>
+<p><a href="https://github.com/randy3k/otp/actions/workflows/check.yaml" class="external-link"><img src="https://github.com/randy3k/otp/actions/workflows/check.yaml/badge.svg" alt="check"></a> <a href="https://app.codecov.io/gh/randy3k/otp" class="external-link"><img src="https://codecov.io/gh/randy3k/otp/branch/master/graph/badge.svg" alt="codecov"></a> <a href="https://cran.r-project.org/package=otp" class="external-link"><img src="http://www.r-pkg.org/badges/version/otp" alt="CRAN_Status_Badge"></a> <a href="https://cran.r-project.org/package=otp" class="external-link"><img src="http://cranlogs.r-pkg.org/badges/grand-total/otp"></a></p>
 <p>Github: <a href="https://github.com/randy3k/otp" class="external-link uri">https://github.com/randy3k/otp</a></p>
 <p>Documentation: <a href="https://randy3k.github.io/otp/" class="external-link">https://randy3k.github.io/otp</a></p>
 <p>Generating and validating One-time Password based on Hash-based Message Authentication Code (HOTP) and Time Based One-time Password (TOTP) according to RFC 4226 <a href="https://datatracker.ietf.org/doc/html/rfc4226" class="external-link uri">https://datatracker.ietf.org/doc/html/rfc4226</a> and RFC 6238 <a href="https://datatracker.ietf.org/doc/html/rfc6238" class="external-link uri">https://datatracker.ietf.org/doc/html/rfc6238</a>.</p>
@@ -106,17 +106,17 @@
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">p</span> <span class="op">&lt;-</span> <span class="va"><a href="reference/TOTP.html">TOTP</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="st">"JBSWY3DPEHPK3PXP"</span><span class="op">)</span></span>
 <span><span class="op">(</span><span class="va">code</span> <span class="op">&lt;-</span> <span class="va">p</span><span class="op">$</span><span class="fu">now</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb9"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "669178"</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "012318"</span></span></code></pre></div>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">p</span><span class="op">$</span><span class="fu">verify</span><span class="op">(</span><span class="va">code</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb11"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "2024-01-22 14:00:30 PST"</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "2024-01-22 15:55:30 PST"</span></span></code></pre></div>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">raster</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/graphics/image.html" class="external-link">image</a></span><span class="op">(</span></span>
 <span>  <span class="fu">qrencoder</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/qrencoder/man/qrencode_raster.html" class="external-link">qrencode_raster</a></span><span class="op">(</span><span class="va">p</span><span class="op">$</span><span class="fu">provisioning_uri</span><span class="op">(</span><span class="st">"otp"</span><span class="op">)</span><span class="op">)</span>,</span>
 <span>  asp <span class="op">=</span> <span class="fl">1</span>, col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"white"</span>, <span class="st">"black"</span><span class="op">)</span>, axes <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  xlab <span class="op">=</span> <span class="st">""</span>, ylab <span class="op">=</span> <span class="st">""</span></span>
 <span><span class="op">)</span></span></code></pre></div>
-<p><img src="https://i.imgur.com/7XW8sR6.png" width="20%"></p>
+<p><img src="https://i.imgur.com/IHa0bMm.png" width="20%"></p>
 </div>
 </div>
 <div class="section level2">
