@@ -10,8 +10,8 @@ Authors@R:
 Description: Generating and validating One-time Password based on 
     Hash-based Message Authentication Code (HOTP) 
     and Time Based One-time Password (TOTP)
-    according to RFC 4226 <https://tools.ietf.org/html/rfc4226> and
-    RFC 6238 <https://tools.ietf.org/html/rfc6238>.
+    according to RFC 4226 <https://datatracker.ietf.org/doc/html/rfc4226> and
+    RFC 6238 <https://datatracker.ietf.org/doc/html/rfc6238>.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
